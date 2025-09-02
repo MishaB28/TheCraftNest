@@ -1,6 +1,6 @@
 ## The Craft Nest
 
-An e-commerce web application built with PHP, MySQL, HTML/CSS/JS, and integrated with Cashfree sandbox payments.
+A Craft E-Commerce Web Application built with PHP, MySQL, HTML/CSS/JS, and integrated with Cashfree sandbox payments.
 
 The project includes both customer-facing storefront and admin panel for managing products, orders, and users.
 
