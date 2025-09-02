@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.wrapper {
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+.tbl-full {
+    width: 100%;
+}
+
+.tbl-30 {
+    width: 30%;
+}
+
+table tr th {
+    border-bottom: 1px solid #300955;
+    padding: 1%;
+    text-align: left;
+}
+
+table tr td {
+    padding: 1%;
+}
+
+.btn-primary {
+    background-color: #833f3f;
+    color: #ffffff;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #22127e;
+}
+
+.btn-secondary {
+    background-color: #5197a0;
+    color: #ffffff;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn-secondary:hover {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #090a55;
+}
+
+.btn-danger {
+    color: #ffffff;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #c04343;
+}
+
+.btn-danger:hover {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #550916;
+}
+
+.success {
+    color: #1b565e;
+}
+
+.error {
+    color: #c04343;
+}
+
+/*Css for login*/
+.login {
+    border: 1px solid #3d216b;
+    width: 50%;
+    margin: 10% auto;
+    padding: 2%;
+    background: #fff6ff;
+}
+
+.login h1 {
+    font-family: cursive;
+}
+textarea, select{
+    display:block;
+  margin-top: 10px;
+
+    padding: 10px;
+ 
+  
+}
+textarea, select{
+    margin-left: 5px;
+}
+
+/*Menu*/
+.menu {
+    border-bottom: 1px solid #300955;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu ul li {
+    display: inline;
+    padding: 1%;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #7e127c;
+
+}
+
+.menu ul li a:hover {
+    letter-spacing: 2px;
+    color: #550909;
+    font-style: italic;
+}
+
+/*Main-Content*/
+.main-content {
+    background: #fff6ff;
+    padding: 3% 0;
+}
+
+.headings {
+    width: 18%;
+    background-color: #ffffff;
+    margin: 1%;
+    padding: 2%;
+    float: left;
+}
+
+/*Footer*/
+.footer {
+    color: rgb(255, 233, 255);
+    font-style: italic;
+    background: rgb(85, 15, 94);
+}

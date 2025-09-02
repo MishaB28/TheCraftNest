@@ -1,0 +1,199 @@
+@import "nav.css";
+@import "footer.css";
+@import "home.css";
+.contact-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.contactinfo {
+    color: #30256e;
+    max-width: 500px;
+    line-height: 25px;
+    font-size: 25px;
+}
+
+.contactform {
+    max-width: 1000px;
+    margin-right: 50px;
+}
+
+.inputgroup {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+
+.inputgroup label {
+    flex-basis: 28%;
+}
+
+.inputgroup textarea {
+    background: #ebe8ffd2;
+    color: #4d0303;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 20px;
+    min-height: 200px;
+    max-height: 400px;
+    resize: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    flex-basis: 100%;
+    opacity: 0.9;
+    outline: none;
+}
+
+.inputgroup input {
+    flex-basis: 100%;
+    padding: 10px 0;
+    padding-bottom: 1px solid #999;
+    color: #333;
+    font-size: 15px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+::placeholder {
+    font-size: 15px;
+}
+
+.inputgroup span {
+    position: absolute;
+    bottom: 25px;
+    right: 15px;
+    font-size: 15px;
+    color: #6e256e;
+}
+
+.inputgroup span i {
+    color: seagreen;
+}
+
+#submit-error {
+    color: #6e256e;
+}
+
+.contactinfo,
+.contactform {
+    flex: 1;
+}
+
+.contactheading {
+    color: rgb(7, 75, 102);
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
+    padding-top: 70px;
+}
+
+.contactform .textbox {
+    background: #ffe1ffd2;
+    color: #4d0303;
+    border: none;
+    width: 100%;
+    height: 60px;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+    outline: none;
+    margin: 4px;
+}
+
+.contactform.textbox:first-child {
+    margin-right: 15px;
+}
+
+.send-btn {
+    font-weight: 600;
+    width: 20%;
+    height: 50px;
+    padding: 9px 30px;
+    margin: 40px 0;
+    border-radius: 30px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #3d1157;
+    color: beige;
+    text-transform: capitalize;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.send-btn:hover {
+    letter-spacing: 1px;
+    font-style: italic;
+    background: #571126;
+    color: beige;
+}
+
+.location,
+.message,
+.phone,
+.clock {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 20px;
+    margin-top: 2px;
+}
+
+label {
+    font-style: italic;
+    color: #6e255c;
+    font-weight: bold;
+}
+
+
+/*css for alert message*/
+
+.alertsuccess {
+    z-index: 1;
+    background: #f3dffa;
+    font-size: 22px;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: absolute;
+    right: 0;
+    border-left: 8px solid #873092;
+    border-radius: 4px;
+}
+
+.alerterror {
+    z-index: 1;
+    background: #fff8e2;
+    font-size: 22px;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: absolute;
+    right: 0;
+    border-left: 8px solid #e4b143;
+    border-radius: 4px;
+}
+
+@media screen and (max-width:950px) {
+    .contact-section {
+        flex-direction: column;
+    }
+    .contactinfo,
+    .contactform {
+        margin: 30px 50px;
+    }
+    .contactform h2 {
+        font-size: 30px;
+    }
+    .contactform .textbox {
+        width: 100%;
+    }
+}

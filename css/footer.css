@@ -1,0 +1,54 @@
+footer{
+    position: absolute;
+    padding: 10vw;
+    width: 100%;
+    background: #fdfafa;
+    min-height: 10vh;
+}
+
+.footer-content{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly
+}
+.footer-content .logo{
+    height: 260px;
+}
+.footer-ul-container{
+    display: flex; 
+}
+.explore{
+    display: grid;
+    grid-gap:10px;
+    list-style-type: none;
+}
+.footer-content h2{  
+    text-transform: capitalize;
+    color: #561157;
+    text-decoration:none;
+    font-style: italic;
+
+}
+.footer-link{
+     text-decoration: none;
+     text-transform: capitalize;
+     color: #241157;
+}
+.footer-link:hover{
+color: #1c5c75;
+letter-spacing: 1px;
+font-weight:bold;
+font-style: italic;
+}
+.footer-credit{
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    font-style: italic;
+    background: rgba(253, 215, 215, 0.2);
+}

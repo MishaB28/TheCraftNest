@@ -1,0 +1,75 @@
+@import "nav.css";
+@import "footer.css";
+@import "home.css";
+
+.product-details{
+    width: 100%;
+    padding: 60px 10vw;
+    display: flex;
+    justify-content: space-between;
+}
+.image{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    background-size: cover;
+}
+.details{
+   width: 50%;
+}
+
+.details .product-brand{
+    text-transform: capitalize;
+    font-size: 30px;
+}
+.details p{
+    font-family: 'Neucha', cursive;
+    font-size: 25px;
+    line-height: 30px;
+    height: auto;
+    margin: 15px 0 30px;
+    color: rgb(102, 25, 92);
+}
+.rating .fa{
+    color:#b3790fd2;
+    }
+    .details h3{
+      color: #6e2525;
+    }
+
+
+.details input{
+            width: 160px;
+            height: 40px;
+            padding-left: 10px;
+            font-size: 20px;
+            margin: 10px;
+            border: 2px solid #6e2525;
+        }
+        input:focus{
+            outline: none;
+        }
+        .btn{
+            text-decoration: none;
+            border: none;
+            text-align: center;
+           
+            align-items: center;
+            justify-content: center;
+        }
+     
+        .more-products{
+            margin:auto;
+            padding-left:20px;
+            padding-right: 20px;
+        
+        }
+        .more-products a{
+            text-decoration:dotted;
+            color: rgb(12, 120, 182);
+            font-size: 28px;
+        }
+        .review-menu {
+            padding: 4% 0;
+        }
+        

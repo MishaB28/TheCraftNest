@@ -1,0 +1,11 @@
+# Secrets
+config.cashfree.php
+.env
+.env.*
+*.sql
+*.log
+*.tmp
+.cache/
+.idea/
+.vscode/
+.DS_Store

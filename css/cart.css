@@ -1,0 +1,320 @@
+﻿.cartcontainer {
+  margin: 40px auto;
+}
+
+.heading {
+  font-size: 35px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 1000;
+  color: #5d2b5f;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+.space{
+  padding-bottom: 30%;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.cartcontainer {
+  max-width: 1350px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.cart-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+  color: #721d1d;
+  background: rgb(255, 240, 240);
+  font-weight: 1000;
+  text-align: center;
+}
+
+td {
+  padding: 10px 5px;
+  align-items: center;
+  text-align: center;
+}
+
+td img {
+  width: 110px;
+  height: 110px;
+  margin-right: 10px;
+
+}
+
+.title {
+  line-height: 100px;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  color: #2d1a5f;
+}
+
+.price,
+.price2,
+.quantity {
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  color: #2e5f6b;
+}
+.quantity input{
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  color: #2e5f6b;
+}
+.remove a {
+  font-family: 'Neucha';
+  font-size: 22px;
+  line-height: 45px;
+}
+
+hr {
+  width: 100%;
+  float: left;
+  margin-right: 5%;
+}
+
+.checkout {
+  align-items: right;
+  text-align: right;
+  padding: 20px;
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  padding: 10px;
+}
+
+.Subtotal {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4f2dad;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+.items {
+  font-size: 20px;
+  text-align: left;
+  padding-top: 10px;
+  font-weight: 600;
+  color: #665d0d;
+  line-height: 10px;
+}
+
+.total-amount {
+  font-size: 33px;
+
+  font-weight: 900;
+  color: #b4068f;
+}
+
+.button {
+  margin-top: 5px;
+  width: 30%;
+  height: 40px;
+  border: none;
+  background: #021144d2;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.5s;
+  transition: 0.2s;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 30px;
+  color: #fff;
+
+}
+.button:hover {
+  background: #6e2525;
+  letter-spacing: 1px;
+  font-style: italic;
+  background: #571126;
+  color: beige;
+  border: none;
+}
+button{
+  color: #ffffff;
+  background: #021144d2;
+  color: #fff;
+  padding: 6px 13px;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.5s;
+  transition: 0.2s;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+button:hover {
+  background: #6e2525;
+  font-style: italic;
+  background: #571126;
+  color: beige;
+  border: none;
+}
+
+.counter{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ }
+
+/*
+.counter{
+  width: 15%;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .countb{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #661c5a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  color: #ffffff;
+  cursor: pointer;
+ }*/
+/*
+ .Action{
+  font-size: 30px;
+  font-family: Neucha;
+  font-weight: 600;
+  color: #6e1919;
+  cursor: pointer;
+ }
+ .counter{
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .countb{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #661c5a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  color: #ffffff;
+  cursor: pointer;
+ }
+ .count{
+  font-size: 20px;
+  font-family: "Neucha";
+  font-weight: 900;
+  color: #202020;
+ }
+ .amount{
+  padding-top: 20px;
+  font-size: 26px;
+  font-family: "Neucha";
+  font-weight: 800;
+  color: #202020;
+ }
+
+.remove a{
+font-family: 'Neucha';
+font-size: 25px;
+line-height: 45px;
+}
+
+hr{
+  width: 90%;
+  float: right;
+  margin-right: 5%;
+ }
+ .checkout{
+  float: right;
+  margin-right: 5%;
+  width: 28%;
+  padding: 50px;
+ }
+ .total{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+ }
+ .Subtotal{
+  font-size: 22px;
+  font-family: ‘Open Sans’;
+  font-weight: 700;
+  color: #202020;
+ }
+ .items{
+  font-size: 16px;
+  font-family: ‘Open Sans’;
+  font-weight: 500;
+  color: #909090;
+  line-height: 10px;
+ }
+ .total-amount{
+  font-size: 30px;
+  font-family: ‘Open Sans’;
+  font-weight: 900;
+  color: #202020;
+ }
+ .button{
+  margin-top: 5px; 
+  background: #021144d2;
+  width: 100%;
+  height: 40px;
+  border: none;
+ border-radius: 30px;
+ transition: background 0.5s;
+ transition: 0.2s;
+ cursor: pointer;
+  font-size: 16px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #202020;
+  color: #fff;
+ }
+ 
+
+.button:hover {
+
+
+
+  background: #6e2525;
+  letter-spacing: 1px;
+  font-style: italic;
+  background: #571126;
+  color: beige;
+}*/
+

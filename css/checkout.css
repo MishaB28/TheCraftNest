@@ -1,0 +1,275 @@
+.chkout {
+    margin: 40px auto;
+    max-width: 1350px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.billing {
+    padding: 40px;
+    color: #205579;
+}
+
+.billingaddr {
+    padding-left: 40px;
+    padding-top: 40px;
+    justify-content: space-evenly;
+    color: #b35c29;
+}
+
+.billing2 {
+    padding-left: 50px;
+    color: #792620;
+    padding-bottom: 50px;
+}
+
+.editlink {
+    float: right;
+    font-style: italic;
+    color: #1c7ab8;
+    margin-right: 50px;
+    padding-bottom: 10px;
+}
+
+.addressp {
+    padding-left: 40px;
+    color: #6a2079;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.addrcontainer {
+    padding-top: 30px;
+    max-width: 1350px;
+    margin: auto;
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-bottom: 100px;
+}
+
+.billing-details form {
+    margin-left: 100px;
+}
+
+input,
+textarea,
+label,
+select {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.field2 input,
+textarea,
+select {
+    margin-left: 5px;
+    color: #3e0a4b;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(236, 195, 195, 0.1);
+    opacity: 0.9;
+    outline: none;
+    border: 1px solid;
+    border-color: #6a2079;
+    min-width: 500px;
+}
+
+textarea {
+    color: #3e0a4b;
+    padding: 12px;
+    font-size: 20px;
+    resize: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(236, 195, 195, 0.1);
+    opacity: 0.9;
+    outline: none;
+}
+
+.amt {
+    margin-left: 100px;
+}
+
+.field2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+
+.field2 span {
+    position: absolute;
+    font-size: 19px;
+    color: #6e256e;
+    left: 600px;
+}
+
+.field2 span i {
+    color: #aa7695;
+}
+
+.chkoutbtn {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+    height: 50px;
+    border: none;
+    background: #021144d2;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background 0.5s;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 100px;
+    color: #fff;
+    margin-bottom: 20%;
+}
+
+.chkoutbtn:hover {
+    background: #6e2525;
+    letter-spacing: 1px;
+    font-style: italic;
+    background: #571126;
+    color: beige;
+    border: none;
+}
+
+.cancelbtn {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+    height: 50px;
+    border: none;
+    background: #021144d2;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background 0.5s;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 22px;
+    margin-top: 80px;
+    color: #fff;
+    margin-bottom: 100px;
+}
+
+.cancelbtn:hover {
+    background: #6e2525;
+    letter-spacing: 1px;
+    font-style: italic;
+    background: #571126;
+    color: beige;
+    border: none;
+}
+
+label {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: #6a2079;
+}
+
+input[type=checkbox] {
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.types {
+    margin: 25px 0;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-bottom: 250px;
+    display: flex;
+}
+
+.type {
+    width: 30%;
+    position: relative;
+    background: rgb(248, 246, 238);
+    border: 2px solid #e8ebed;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: all .5s ease;
+    border-color: #eee8e2;
+}
+
+.type:hover {
+    border-color: #396b8f;
+    background: #eaf3fa;
+}
+
+.logo,
+h6 {
+    color: #19415e;
+}
+
+.img-razor,
+.img-paypal {
+    height: 100px;
+}
+
+.logo {
+    color: #3d79a1;
+}
+
+.logo,
+h6 {
+    transition: all .5s ease;
+}
+
+.logo {
+    font-size: 48px;
+    color: #8a959c;
+}
+
+h6 {
+    margin-bottom: 0;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    color: #942782;
+}
+
+.success {
+    color: #88B04B;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.msg {
+    color: #404F5E;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    margin: 0;
+}
+
+.checkmark {
+    color: #9ABC66;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left: -15px;
+}
+
+.card-purchase {
+    background: white;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #C8D0D8;
+    display: inline-block;
+    margin: 0 auto;
+}
