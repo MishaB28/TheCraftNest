@@ -48,8 +48,6 @@ require_once __DIR__ . '/../connection.php';
       <span id="message-error"></span>
       </div>
         
-    
-    <a href="<?= BASE_URL ?>pages/contactmail.php">
 
    <input type="submit" name="submit" class="send-btn" onclick="return validateForm()" value="Send"></a>
     
