@@ -8,7 +8,7 @@ if (isset($_POST['updatepassword'])) {
     $update = "UPDATE `admin_users` SET `password`='$pass', `resettoken`=NULL, `resettokenexpire`=NULL WHERE `email`='$_POST[emailid]'";
     if (mysqli_query($conn, $update)) {
         echo '<script> alert("Your password has been changed! Thank you :)");
-       window.location.href("admin/login.php");
+             window.location.href = "' . BASE_URL . 'admin/login.php";
        </script>';
     } else {
         $alert = '<div class="alert error">
@@ -87,7 +87,7 @@ echo $alert;
     setTimeout(function() {
         let alert = document.querySelector(".alert");
         alert.remove();
-        window.location.replace("http://localhost/TCN/admin/login.php");
+        window.location.replace("' . BASE_URL . 'admin/login.php");
     }, 4000);
 </script>
 

@@ -20,7 +20,6 @@
 
 $sql = "SELECT orders.id, orders.totalprice, orders.orderstatus, orders.timestamp, user_data.name FROM orders JOIN user_data ON orders.custid=user_data.custid ORDER BY `orders`.`id` DESC    ";
    
- query
 $res = mysqli_query($conn, $sql);
 if($res==TRUE)
 {

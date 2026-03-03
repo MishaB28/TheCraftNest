@@ -4,7 +4,6 @@ include('../configs/constants.php');
 $id = $_GET['id'];
 $sql="DELETE FROM admin_users WHERE id=$id";
 
- query
 $res=mysqli_query($conn, $sql);
 
 if($res==TRUE){

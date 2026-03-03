@@ -42,7 +42,6 @@ if(isset($_GET['id']))
     $id = $_GET['id'];
 }
 $sql = "SELECT * FROM orders WHERE id='$id'";
- query
 $res = mysqli_query($conn, $sql);
 if($res==TRUE)
 {

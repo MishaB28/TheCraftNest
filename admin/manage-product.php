@@ -46,7 +46,6 @@
         </tr>
         <?php
           $sql="SELECT * FROM product";
-           query
           $res = mysqli_query($conn, $sql);
 
               $count = mysqli_num_rows($res);

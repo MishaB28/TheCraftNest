@@ -54,7 +54,6 @@
 
         <?php
           $sql="SELECT * FROM admin_users";
-           query
           $res = mysqli_query($conn, $sql);
           if($res==TRUE)
           {

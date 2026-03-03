@@ -20,7 +20,7 @@ require_once __DIR__ . '/../configs/constants.php';?>
                 </ul>
             </center>
         </div>
-        <p class="footer-credit">Copyright 2021 - Craft Nest</p>
+        <p class="footer-credit">Copyright 2026 - The Craft Nest</p>
     </div>
 </footer>
 <script>

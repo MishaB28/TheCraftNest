@@ -4,7 +4,7 @@ if (empty($_SESSION['login'])){
 
   
       echo '<script> alert("Not logged in!");
-  window.location.replace("login.php");
+          window.location.replace("' . BASE_URL . 'admin/login.php");
   </script>';
   die();
   

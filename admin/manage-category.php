@@ -49,7 +49,6 @@
         <?php
         //query to get all admins 
           $sql="SELECT * FROM categories"; 
-           query
           $res = mysqli_query($conn, $sql);
           //check if executed
        
