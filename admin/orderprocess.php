@@ -41,6 +41,7 @@ if(isset($_GET['id']))
 {
     $id = $_GET['id'];
 }
+$current_status = "";
 $sql = "SELECT * FROM orders WHERE id='$id'";
 $res = mysqli_query($conn, $sql);
 if($res==TRUE)
@@ -51,7 +52,7 @@ if($res==TRUE)
     {
         while($row=mysqli_fetch_assoc($res))
         {
-
+            $current_status = $row["orderstatus"];
             ?>
         
 
@@ -62,7 +63,7 @@ if($res==TRUE)
                         $result_proID = mysqli_query($conn, $sql_proID);
                         if($result_proID ==TRUE)
 {    
-    $count = mysqli_num_rows($res);
+    $count = mysqli_num_rows($result_proID);
     if($count>0)
     {
         while($row_prodID=mysqli_fetch_assoc($result_proID))
@@ -136,17 +137,16 @@ if($res==TRUE)
              <br>
          <div class="form-group"><label for="sel1">Change Status:</label>
   <select class="form-control" name="status">
-    <option value='In Progress'>In Progress</option>
-  
-    <option value='Dispatched'>Dispatched</option>
-    <option value='Delivered'>Delivered</option>
-    <option value='In Progress'>Cancelled</option>
+    <option value="In Progress" <?php if($current_status=="In Progress") echo "selected"; ?>>In Progress</option>
+    <option value="Dispatched" <?php if($current_status=="Dispatched") echo "selected"; ?>>Dispatched</option>
+    <option value="Delivered" <?php if($current_status=="Delivered") echo "selected"; ?>>Delivered</option>
+    <option value="Cancelled" <?php if($current_status=="Cancelled") echo "selected"; ?>>Cancelled</option>
   </select>
   <br>
   <label>Reason:
 	</label>
 	
-	<textarea class="form-control" name="address" placeholder="" rows="2" cols="20"></textarea>
+	<textarea class="form-control" name="reason" placeholder="" rows="2" cols="20"></textarea>
 		
                           <td colspan="2">
                 <input type="hidden" name='orderid' value='<?php echo $_GET['id'] ?>'>

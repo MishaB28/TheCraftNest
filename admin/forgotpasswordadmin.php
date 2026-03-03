@@ -33,12 +33,13 @@ function sendMail($emailid, $reset_token)
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'Password reset link - The Craft Nest';
-        $mail->Body    = "We got a password reset request from you.<br>
-        Please click on the link below to reset your password!
-        <br>
-        <a href='http://localhost/TCN/admin/updatepasswordadmin.php?emailid=$emailid&reset_token=$reset_token'>
-         <br> Reset your password<br>
-        </a>";
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+        $host = $_SERVER['HTTP_HOST'];
+        $resetLink = $protocol . $host . BASE_URL . "admin/updatepasswordadmin.php?emailid="
+            . urlencode($emailid) . "&reset_token=" . urlencode($reset_token);
+        $mail->Body = "We got a password reset request from you.<br>
+            Please click on the link below to reset your password!<br><br>
+            <a href='$resetLink'>Reset your password</a>";
 
         $mail->send();
         return true;
