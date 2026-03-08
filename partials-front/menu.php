@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '/../configs/constants.php';
 require_once __DIR__ . '/../connection.php';
-session_start();
-ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
