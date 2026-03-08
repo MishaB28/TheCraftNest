@@ -1,5 +1,8 @@
 <?php
 ob_start();
+var_dump(headers_sent($file, $line));
+    echo $file . ":" . $line;
+    exit;
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
