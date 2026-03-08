@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 // start session
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
