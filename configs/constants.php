@@ -40,7 +40,7 @@ if ($_SERVER['SERVER_NAME'] === 'localhost') {
 
 }
 
-$conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD, DB_NAME)
+$conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD, DB_NAME, 4000)
         or die("Database connection failed");
 
 ?>
