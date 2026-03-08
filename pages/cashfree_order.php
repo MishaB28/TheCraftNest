@@ -1,6 +1,6 @@
 <?php
-$appId = "TEST107833275b77274d8fb2876bd1c972338701";
-$secretKey = "cfsk_ma_test_e4a242396b2dab32ca377947ec8184f0_7ad3c9c7";
+$appId = getenv("CF_APP_ID");
+$secretKey = getenv("CF_SECRET_KEY");
 
 $url = "https://sandbox.cashfree.com/pg/orders";
 
@@ -15,7 +15,7 @@ $data = [
         "customer_phone" => $_POST['phone']
     ],
     "order_meta" => [
-        "return_url" => "http://localhost/TheCraftNest/pages/thankyou.php?order_id={order_id}"
+       "return_url" => SITEURL . "pages/thankyou.php?order_id={order_id}"
     ]
 ];
 
@@ -31,6 +31,9 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
     "x-client-secret: $secretKey",
     "x-api-version: 2022-09-01"
 ]);
+
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
 $response = curl_exec($ch);
 if ($response === false) {
