@@ -1,4 +1,11 @@
 <?php
+require_once __DIR__ . '/../configs/constants.php';
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    exit("Forbidden");
+}
+
 $appId = getenv("CF_APP_ID");
 $secretKey = getenv("CF_SECRET_KEY");
 
