@@ -30,8 +30,14 @@ if ($_SERVER['SERVER_NAME'] === 'localhost') {
     // create connection
     $conn = mysqli_init();
 
-    // enforce SSL (required by TiDB Cloud)
-    mysqli_ssl_set($conn, NULL, NULL, NULL, NULL, NULL);
+    mysqli_ssl_set(
+        $conn,
+        NULL,
+        NULL,
+        __DIR__ . "/certs/isrgrootx1.pem",
+        NULL,
+        NULL
+    );
 
     mysqli_real_connect(
         $conn,
@@ -39,7 +45,7 @@ if ($_SERVER['SERVER_NAME'] === 'localhost') {
         DB_USERNAME,
         DB_PASSWORD,
         DB_NAME,
-        4000,   // TiDB port
+        4000,
         NULL,
         MYSQLI_CLIENT_SSL
     );
