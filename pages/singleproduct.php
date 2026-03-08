@@ -1,6 +1,4 @@
 ﻿<?php include __DIR__ . '/../partials-front/menu.php';
-
-require_once __DIR__ . '/../connection.php';
 $alert =  '';
 ?>
 
