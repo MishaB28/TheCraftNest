@@ -3,7 +3,7 @@ require_once __DIR__ . '/../configs/constants.php';?>
 <footer>
     <div class="extra"></div>
     <div class="footer-content">
-        <img src="<?= BASE_URL ?>Images/Logo.png" class="logo" alt="">
+        <img src="<?= BASE_URL ?>images/Logo.png" class="logo" alt="">
         <div class="footer-ul-container">
             <center>
                 <ul class="explore">

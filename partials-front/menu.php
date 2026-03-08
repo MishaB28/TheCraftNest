@@ -10,7 +10,7 @@ ob_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Craft Nest</title>
-  <link rel="shortcut icon" href="<?= BASE_URL ?>Images/Logo.png" />
+  <link rel="shortcut icon" href="<?= BASE_URL ?>images/Logo.png" />
   <link href="<?= BASE_URL ?>css/style.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="<?= BASE_URL ?>css/menu.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>css/footer.css">
@@ -28,7 +28,7 @@ ob_start();
 <body>
   <nav class="navbar">
     <div class="nav">
-      <img src="<?= BASE_URL ?>Images/Logo.png" class="brand-logo" alt="">
+      <img src="<?= BASE_URL ?>images/Logo.png" class="brand-logo" alt="">
       <div class="nav-items">
         <form action="<?= BASE_URL ?>pages/product-search.php" method="POST">
           <div class="search">

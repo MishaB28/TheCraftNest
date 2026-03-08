@@ -7,7 +7,7 @@ include __DIR__ . '/../partials-front/menu.php';
 
         <h2 class="product-heading">About Us</h2>
 </center>
-<img src="<?= BASE_URL ?>Images/Logo.png" class="abtlogo" alt="">
+<img src="<?= BASE_URL ?>images/Logo.png" class="abtlogo" alt="">
 <div class="content">
     <h4 class="objective">
         
