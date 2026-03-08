@@ -1,5 +1,7 @@
-﻿<?php include __DIR__ . '/../partials-front/menu.php';
-$alert =  '';
+<?php
+ob_start();
+include __DIR__ . '/../partials-front/menu.php';
+$alert = '';
 ?>
 
 <?php
