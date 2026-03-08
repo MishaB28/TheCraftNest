@@ -2,7 +2,6 @@
 ob_start();
 include __DIR__ . '/../partials-front/menu.php';
 require_once __DIR__ . '/../connection.php';
-require_once __DIR__ . '/../config.cashfree.php';
 
 $orderId = $_GET['order_id'] ?? '';
 if ($orderId === '') {
@@ -13,13 +12,17 @@ if ($orderId === '') {
 }
 
 // Verify payment with Cashfree
-$ch = curl_init(CF_BASE . "/orders/" . urlencode($orderId));
+$appId = getenv("CF_APP_ID");
+$secretKey = getenv("CF_SECRET_KEY");
+$cfBase = "https://sandbox.cashfree.com/pg";
+
+$ch = curl_init($cfBase . "/orders/" . urlencode($orderId));
 curl_setopt_array($ch, [
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_HTTPHEADER     => [
-    "x-api-version: 2025-01-01",
-    "x-client-id: " . CF_APP_ID,
-    "x-client-secret: " . CF_SECRET_KEY
+    "x-api-version: 2022-09-01",
+    "x-client-id: " . $appId,
+    "x-client-secret: " . $secretKey
   ]
 ]);
 $res  = curl_exec($ch);
