@@ -4,7 +4,8 @@ include __DIR__ . '/../partials-front/menu.php';
 require_once __DIR__ . '/../connection.php';
 
 if (!isset($_SESSION['loggedin']) || empty($_SESSION['emailid'])) {
-    echo '<script>alert("Please Log-in/ Register to Checkout."); window.location.replace("' . BASE_URL . 'pages/account.php");</script>';
+    echo '<script>alert("Please Log-in/ Register to Checkout.");
+        window.location.replace("' . BASE_URL . 'pages/account.php");</script>';
     exit;
 }
 if (!isset($_SESSION['custid'])) {

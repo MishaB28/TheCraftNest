@@ -8,7 +8,7 @@ if(!isset($_SESSION['loggedin']) && empty($_SESSION['cust']) ){
 
  
 if(!isset($_SESSION['custid'])){
-	echo '<script>window.location.href = "' . BASE_URL . 'account.php";</script>';
+    echo '<script>window.location.href = "' . BASE_URL . 'pages/account.php";</script>';
 
 }
 
