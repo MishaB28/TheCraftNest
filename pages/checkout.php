@@ -34,35 +34,35 @@ $row = mysqli_fetch_assoc($result);
 
         <form id="checkoutForm">
 
-            <div class="field2">
             <label>Full Name:</label>
+            <div class="field2">
             <input type="text" id="name" name="name" required value="<?php echo $row['name'] ?? ''; ?>">
             </div>
 
-            <div class="field2">
             <label>Email Address:</label>
+            <div class="field2">
             <input type="email" id="regemail" name="email" required value="<?php echo $_SESSION['emailid']; ?>">
             </div>
 
-            <div class="field2">
             <label>Phone:</label>
+            <div class="field2">
             <input type="text" name="phone" id="phone" required value="<?php echo $row['phone'] ?? ''; ?>">
             </div>
 
-            <div class="field2">
             <label>Address:</label>
+            <div class="field2">
             <textarea id="address" name="address" required><?php echo $row['address'] ?? ''; ?></textarea>
             </div>
 
-            <div class="field2">
             <label>Country:</label>
+            <div class="field2">
             <select name="country" required>
             <option value="India" selected>India</option>
             </select>
             </div>
 
-            <div class="field2">
             <label>State:</label>
+            <div class="field2">
             <select class="form-control" name="state" required>
 
             <option value="">Select State / UT</option>
@@ -142,12 +142,14 @@ $row = mysqli_fetch_assoc($result);
             </select>
             </div>
 
-            <div class="field2">
             <label>Postcode:</label>
+            <div class="field2">
             <input type="text" name="postcode" required value="<?php echo $row['postcode'] ?? ''; ?>">
             </div>
 
-            <h3 class="billing">Your Order</h3>
+            <div class="field2">
+                 <h3 class="billing">Your Order</h3>
+            </div>
             <table class="amt">
                 <tbody>
                     <tr>
