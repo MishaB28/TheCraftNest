@@ -1,21 +1,14 @@
 <?php
 ob_start();
-
 include __DIR__ . '/../partials-front/menu.php';
 require_once __DIR__ . '/../connection.php';
 
 if (!isset($_SESSION['loggedin']) || empty($_SESSION['emailid'])) {
-    echo '<script>
-        alert("Please Log-in/ Register to Checkout.");
-        window.location.replace("' . BASE_URL . 'pages/account.php");
-    </script>';
+    echo '<script>alert("Please Log-in/ Register to Checkout."); window.location.replace("' . BASE_URL . 'pages/account.php");</script>';
     exit;
 }
-
 if (!isset($_SESSION['custid'])) {
-    echo '<script>
-        window.location.href = "' . BASE_URL . 'pages/account.php";
-    </script>';
+    echo '<script>window.location.href = "' . BASE_URL . 'pages/account.php";</script>';
     exit;
 }
 
@@ -32,65 +25,22 @@ $custid = $_SESSION['custid'];
 $sql = "SELECT * FROM user_data WHERE custid = $custid";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-
-$alert = '';
-if (isset($_POST['submit'])) {
-    if (!empty($_POST['agree']) && $_POST['agree'] == 'true') {
-        $name = $_POST['name'];
-        $address = $_POST['address'];
-        $state = $_POST['state'];
-        $country = $_POST['country'];
-        $postcode = $_POST['postcode'];
-        $phone = $_POST['phone'];
-
-        /* Update if user exists, else insert */
-        $check_sql = "SELECT * FROM user_data WHERE custid = $custid";
-        $check_res = mysqli_query($conn, $check_sql);
-
-        if (mysqli_num_rows($check_res) == 1) {
-            $update_sql = "UPDATE user_data SET
-                name='$name',
-                address='$address',
-                state='$state',
-                country='$country',
-                postcode='$postcode',
-                phone='$phone'
-                WHERE custid=$custid";
-            mysqli_query($conn, $update_sql);
-        } else {
-            $insert_sql = "INSERT INTO user_data
-                (custid,name,address,state,country,postcode,phone)
-                VALUES
-                ('$custid','$name','$address','$state','$country','$postcode','$phone')";
-            mysqli_query($conn, $insert_sql);
-        }
-    } else {
-        $alert = '<div class="alert alerterror"><span>Please agree to the Terms and Conditions.</span></div>';
-    }
-}
-
 ?>
 
 <div class="cartcontainer">
     <h2 class="heading">Checkout</h2>
-
     <div class="billing-details">
         <h3 class="billing">Billing Details:</h3>
 
-        <form id="checkoutForm" method="POST">
-            <?php echo $alert; ?>
-
+        <form id="checkoutForm">
             <label>Full Name:</label>
-            <input class="form-control" id="name" name="name" required
-                   value="<?php echo $row['name'] ?? ''; ?>">
+            <input class="form-control" id="name" name="name" required value="<?php echo $row['name'] ?? ''; ?>">
 
             <label>Email Address:</label>
-            <input class="form-control" id="regemail" name="email" required
-                   value="<?php echo $_SESSION['emailid']; ?>">
+            <input class="form-control" id="regemail" name="email" required value="<?php echo $_SESSION['emailid']; ?>">
 
             <label>Phone:</label>
-            <input class="form-control" name="phone" id="phone" required
-                   value="<?php echo $row['phone'] ?? ''; ?>">
+            <input class="form-control" name="phone" id="phone" required value="<?php echo $row['phone'] ?? ''; ?>">
 
             <label>Address:</label>
             <textarea class="form-control" id="address" name="address" required><?php echo $row['address'] ?? ''; ?></textarea>
@@ -108,14 +58,9 @@ if (isset($_POST['submit'])) {
             </select>
 
             <label>Postcode:</label>
-            <input class="form-control" name="postcode" required
-                   value="<?php echo $row['postcode'] ?? ''; ?>">
+            <input class="form-control" name="postcode" required value="<?php echo $row['postcode'] ?? ''; ?>">
 
             <input type="hidden" name="amount" value="<?php echo $total; ?>">
-            <input type="hidden" name="submit" value="1">
-
-            <h3 class="billing">Your Order</h3>
-            <p>Total: ₹ <?php echo $total; ?></p>
 
             <label>
                 <input type="checkbox" name="agree" value="true" required>
@@ -124,8 +69,7 @@ if (isset($_POST['submit'])) {
 
             <br><br>
             <center>
-                <span id="submit-error"></span>
-                <button type="submit" id="payBtn" class="chkoutbtn">Pay Now</button>
+                <button type="button" id="payBtn" class="chkoutbtn">Pay Now</button>
             </center>
         </form>
     </div>
@@ -133,27 +77,37 @@ if (isset($_POST['submit'])) {
 
 <script src="<?= BASE_URL ?>js/validate.js"></script>
 <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
-
 <script>
 (async function () {
     const cashfree = await Cashfree({ mode: "sandbox" });
 
-    document.getElementById('checkoutForm').addEventListener('submit', async function (e) {
-        e.preventDefault();
+    document.getElementById('payBtn').addEventListener('click', async function () {
+        const form = document.getElementById('checkoutForm');
+        if (!form.checkValidity()) { form.reportValidity(); return; }
 
-        if (!this.checkValidity()) {
-            this.reportValidity();
+        const formData = new FormData(form);
+
+        try {
+            const saveRes = await fetch('<?= BASE_URL ?>pages/saveuserdata.php', {
+                method: 'POST',
+                body: formData
+            });
+            const saveData = await saveRes.json();
+            if (!saveData.success) {
+                alert('Could not save address. Please try again.');
+                return;
+            }
+        } catch (e) {
+            console.error(e);
+            alert('Network error saving address.');
             return;
         }
-
-        const formData = new FormData(this);
 
         try {
             const res = await fetch('<?= BASE_URL ?>pages/cashfree_order.php', {
                 method: 'POST',
                 body: formData
             });
-
             const data = await res.json();
             console.log("Cashfree response:", data);
 
@@ -162,20 +116,11 @@ if (isset($_POST['submit'])) {
                 return;
             }
 
-            cashfree.checkout({
-                paymentSessionId: data.payment_session_id,
-                redirectTarget: "_self"
-            });
-
-        } catch (err) {
-            console.error(err);
+            cashfree.checkout({ paymentSessionId: data.payment_session_id, redirectTarget: "_self" });
+        } catch (e) {
+            console.error(e);
             alert('Network error starting payment.');
         }
     });
 })();
 </script>
-
-<?php
-include __DIR__ . '/../partials-front/footer.php';
-ob_end_flush();
-?>
