@@ -1,96 +1,62 @@
-<?php include('../configs/constants.php');
-session_start();
-?>
-
-<html>
-
-<head>
-
-    <title>Login - The Craft Nest</title>
-    <link rel="stylesheet" href="css2/admin.css">
-</head>
-
-<body>
-
-    <div class="login">
-
-        <h1 class="text-center">Log in</h1>
-        <br><br>
-
-        <?php
-
-        if (isset($_SESSION['login'])) {
-            echo $_SESSION['login'];
-            unset($_SESSION['login']);
-        }
-        if (isset($_SESSION['login'])){
-            echo '<script> alert("Logged in!");
-                window.location.replace("' . BASE_URL . 'admin/");
-                </script>';
-                die();
-            }
-
-        if (isset($_SESSION['no-login-message'])) {
-            echo $_SESSION['no-login-message'];
-            unset($_SESSION['no-login-message']);
-        }
-        ?>
-        <!--login form starts here-->
-
-        <form action="" method="POST" class="text-center">
-
-            Username:&nbsp;<input type="text" name="username" placeholder="Enter Username">
-            <br>
-            <br>
-            Password:&nbsp;<input type="password" name="password" placeholder="Enter Password">
-            <br>
-            <br>
-            <br>
-            <div class="forgot-link">
-                    <a href="resetpasswordadmin.php">Forgot your password?</a>
-                </div>
-            <br><br><input type="submit" name="submit" value="Log in" class="btn-primary">
-        </form>
-        <!--login form ends here-->
-
-
-    </div>
-
-</body>
-
-</html>
-
 <?php
+include('../configs/constants.php');
+session_start();
 
+if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+    header('Location: ' . BASE_URL . 'admin/');
+    exit;
+}
 
 if (isset($_POST['submit'])) {
 
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = md5($_POST['password']); // or password_hash if you update DB
 
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
     $sql = "SELECT * FROM admin_users WHERE username='$username' AND password='$password'";
-
     $res = mysqli_query($conn, $sql);
 
+    if ($res && mysqli_num_rows($res) == 1) {
+        $row = mysqli_fetch_assoc($res);
 
-    $count = mysqli_num_rows($res);
+        // Set session variables
+        $_SESSION['login'] = true;
+        $_SESSION['admin_username'] = $row['username'];
+        $_SESSION['admin_email'] = $row['email'];
 
-    if ($count == 1) {
-
-        $_SESSION['login']=true;
-
-        header('location:'.SITEURL.'admin/');
+        header('Location: ' . BASE_URL . 'admin/');
+        exit;
     } else {
-
-        echo '<script> alert("Username and Password do not match!");
-            window.location.replace("' . BASE_URL . 'admin/login.php");
-        </script>';
-
-    
+        $alert = '<div class="alert error">
+                    <span>Username and Password do not match!</span>
+                  </div>';
     }
-
 }
-
-
-
 ?>
+<html>
+<head>
+    <title>Login - The Craft Nest</title>
+    <link rel="stylesheet" href="css2/admin.css">
+</head>
+<body>
+<div class="login">
+    <h1 class="text-center">Log in</h1>
+    <br><br>
+
+    <?php
+        if (isset($alert)) echo $alert;
+    ?>
+
+    <form action="" method="POST" class="text-center">
+        Username:&nbsp;<input type="text" name="username" placeholder="Enter Username" required>
+        <br><br>
+        Password:&nbsp;<input type="password" name="password" placeholder="Enter Password" required>
+        <br><br>
+        <div class="forgot-link">
+            <a href="resetpasswordadmin.php">Forgot your password?</a>
+        </div>
+        <br><br>
+        <input type="submit" name="submit" value="Log in" class="btn-primary">
+    </form>
+</div>
+</body>
+</html>
