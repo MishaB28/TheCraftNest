@@ -1,5 +1,7 @@
-<?php include('../configs/constants.php');
-session_start();?>
+<?php
+include('../configs/constants.php');
+session_start();
+?>
 
 <html>
 
@@ -17,17 +19,12 @@ session_start();?>
         <br><br>
 
         <?php
-
-        if (isset($_SESSION['login'])) {
-            echo $_SESSION['login'];
-            unset($_SESSION['login']);
-        }
-        if (isset($_SESSION['login'])){
+        if (isset($_SESSION['login_success'])) {
             echo '<script> alert("Logged in!");
                 window.location.replace("' . BASE_URL . 'admin/");
                 </script>';
-                die();
-            }
+            unset($_SESSION['login_success']);
+        }
 
         if (isset($_SESSION['no-login-message'])) {
             echo $_SESSION['no-login-message'];
@@ -46,9 +43,10 @@ session_start();?>
             <br>
             <br>
             <div class="forgot-link">
-                    <a href="resetpasswordadmin.php">Forgot your password?</a>
-                </div>
-            <br><br><input type="submit" name="submit" value="Log in" class="btn-primary">
+                <a href="resetpasswordadmin.php">Forgot your password?</a>
+            </div>
+            <br><br>
+            <input type="submit" name="submit" value="Log in" class="btn-primary">
         </form>
         <!--login form ends here-->
 
@@ -63,29 +61,23 @@ session_start();?>
 
 
 if (isset($_POST['submit'])) {
-
-
     $username = $_POST['username'];
     $password = md5($_POST['password']);
+
     $sql = "SELECT * FROM admin_users WHERE username='$username' AND password='$password'";
-
     $res = mysqli_query($conn, $sql);
-
-
     $count = mysqli_num_rows($res);
 
     if ($count == 1) {
-
-        $_SESSION['login']=true;
-
-        header('location:'.SITEURL.'admin/');
+        $_SESSION['login'] = true;
+        $_SESSION['login_success'] = true;
+        header('location:'.BASE_URL.'admin/');
+        exit();
     } else {
-
         echo '<script> alert("Username and Password do not match!");
             window.location.replace("' . BASE_URL . 'admin/login.php");
         </script>';
-
-
+        exit();
     }
 
 }
