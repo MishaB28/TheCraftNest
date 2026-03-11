@@ -19,6 +19,7 @@ function sendMail($emailid, $reset_token)
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Timeout    = 10;
         $mail->Username   = $_SERVER['SERVER_NAME'] === 'localhost'
                               ? 'MAIL_ID'
                               : getenv('MAIL_ID'); //SMTP username
@@ -28,8 +29,8 @@ function sendMail($emailid, $reset_token)
         $fromEmail = $_SERVER['SERVER_NAME'] === 'localhost'
                                  ? 'MAIL_ID'
                                  : getenv('MAIL_ID');
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        $mail->SMTPSecure = HPMailer::ENCRYPTION_STARTTLS;           //Enable implicit TLS encryption
+        $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
         $mail->setFrom($fromEmail, 'The Craft Nest');
@@ -49,9 +50,10 @@ function sendMail($emailid, $reset_token)
 
         $mail->send();
         return true;
-    } catch (Exception $e) {
-        return false;
-    }
+    } } catch (Exception $e) {
+          error_log("Mailer Error: " . $mail->ErrorInfo);
+          return false;
+      }
 }
 
 if (isset($_POST['send-reset-link'])) {
@@ -87,8 +89,8 @@ if (isset($_POST['send-reset-link'])) {
 
 ?>
 <script>
-    setTimeout(function() {
-        let alert = document.querySelector(".alert");
-        alert.remove();
-    }, 6000);
+   setTimeout(function() {
+       let alert = document.querySelector(".alert");
+       if (alert) alert.remove();
+   }, 6000);
 </script>
