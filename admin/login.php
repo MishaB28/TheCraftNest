@@ -19,10 +19,6 @@ session_start();
 
         <?php
 
-        if (isset($_SESSION['login'])) {
-            echo $_SESSION['login'];
-            unset($_SESSION['login']);
-        }
         if (isset($_SESSION['login'])){
             echo '<script> alert("Logged in!");
                 window.location.replace("' . BASE_URL . 'admin/");
