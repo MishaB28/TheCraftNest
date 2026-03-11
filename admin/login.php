@@ -24,7 +24,7 @@ session_start();?>
         }
         if (isset($_SESSION['login'])){
             echo '<script> alert("Logged in!");
-                window.location.replace("admin/");
+                window.location.replace("' . BASE_URL . 'admin/");
                 </script>';
                 die();
             }
@@ -82,14 +82,12 @@ if (isset($_POST['submit'])) {
     } else {
 
         echo '<script> alert("Username and Password do not match!");
-        window.location.replace("login.php");
+            window.location.replace("' . BASE_URL . 'admin/login.php");
         </script>';
 
 
     }
 
 }
-
-
 
 ?>
