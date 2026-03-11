@@ -13,9 +13,9 @@ require_once __DIR__ . '/../connection.php';
 <!--alert messages end-->
 <div class="contact-section">
   <div class="contactinfo">
-    <div><img src="<?= BASE_URL ?>images/message.png" class="message">MAIL_ID</div>
-    <div><img src="<?= BASE_URL ?>images/phone.png" class="phone">PHONE_NUMBER</div>
-    <div><img src="<?= BASE_URL ?>images/clock.png" class="clock">Mon - Fri 10:00 AM to 6:00 PM</div>
+<div><img src="<?= BASE_URL ?>images/message.png" class="message"><?= $_SERVER['SERVER_NAME'] === 'localhost' ? 'MAIL_ID' : getenv('MAIL_ID') ?></div>
+<div><img src="<?= BASE_URL ?>images/phone.png" class="phone"><?= $_SERVER['SERVER_NAME'] === 'localhost' ? 'PHONE_NO' : getenv('PHONE_NO') ?></div>
+<div><img src="<?= BASE_URL ?>images/clock.png" class="clock">Mon - Fri 10:00 AM to 6:00 PM</div>
   </div>
   <div class="contactform">
  <span id="submit-error"></span><br>
