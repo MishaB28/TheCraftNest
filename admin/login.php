@@ -1,6 +1,5 @@
 <?php include('../configs/constants.php');
-session_start();
-?>
+session_start();?>
 
 <html>
 
@@ -19,9 +18,13 @@ session_start();
 
         <?php
 
+        if (isset($_SESSION['login'])) {
+            echo $_SESSION['login'];
+            unset($_SESSION['login']);
+        }
         if (isset($_SESSION['login'])){
             echo '<script> alert("Logged in!");
-                window.location.replace("' . BASE_URL . 'admin/");
+                window.location.replace("admin/");
                 </script>';
                 die();
             }
@@ -79,12 +82,14 @@ if (isset($_POST['submit'])) {
     } else {
 
         echo '<script> alert("Username and Password do not match!");
-            window.location.replace("' . BASE_URL . 'admin/login.php");
+        window.location.replace("login.php");
         </script>';
 
 
     }
 
 }
+
+
 
 ?>
