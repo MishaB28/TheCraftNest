@@ -12,5 +12,3 @@ The project includes both customer-facing storefront and admin panel for managin
 - Cashfree sandbox payment integration
 - User authentication (register/login)
 - Admin panel for managing products, orders, and customers
-
-Note: Sensitive keys (Cashfree, SMTP) are not included in this repo.
