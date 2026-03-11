@@ -1,12 +1,6 @@
 <?php
 include('../configs/constants.php');
 session_start();
-
-if (empty($_SESSION['login'])) {
-    echo '<script>alert("Not logged in!");
-          window.location.replace("' . BASE_URL . 'admin/login.php");</script>';
-    exit();
-}
 ?>
 
 <html>
