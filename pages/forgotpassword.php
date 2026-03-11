@@ -19,25 +19,33 @@ function sendMail($emailid, $reset_token)
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'MAIL_ID';                     //SMTP username
-        $mail->Password   = 'PASSWORD';                               //SMTP password
+        $mail->Username   = $_SERVER['SERVER_NAME'] === 'localhost'
+                              ? 'MAIL_ID'
+                              : getenv('MAIL_ID'); //SMTP username
+        $mail->Password   = $_SERVER['SERVER_NAME'] === 'localhost'
+                              ? 'MAIL_APP_PASSWORD'
+                              : getenv('MAIL_PASSWORD'); //SMTP password
+        $fromEmail = $_SERVER['SERVER_NAME'] === 'localhost'
+                                 ? 'MAIL_ID'
+                                 : getenv('MAIL_ID');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('MAIL_ID', 'The Craft Nest');
+        $mail->setFrom($fromEmail, 'The Craft Nest');
 
         $mail->addAddress($emailid);     //Add a recipient
 
         //Content
-        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->isHTML(true); //Set email format to HTML
         $mail->Subject = 'Password reset link - The Craft Nest';
-        $mail->Body    = "We got a password reset request from you.<br>
-        Please click on the link below to reset your password!
-        <br>
-        <a href='http://localhost/TCN/updatepassword.php?emailid=$emailid&reset_token=$reset_token'>
-         <br> Reset your password<br>
-        </a>";
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+        $host = $_SERVER['HTTP_HOST'];
+        $resetLink = $protocol . $host . BASE_URL . "pages/updatepassword.php?emailid="
+            . urlencode($emailid) . "&reset_token=" . urlencode($reset_token);
+        $mail->Body = "We got a password reset request from you.<br>
+        Please click on the link below to reset your password!<br><br>
+        <a href='$resetLink'>Reset your password</a>";
 
         $mail->send();
         return true;
