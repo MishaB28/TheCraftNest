@@ -21,7 +21,7 @@ function sendMail($emailid, $reset_token)
         $mail->Timeout    = 10;
         $mail->Username   = $_SERVER['SERVER_NAME'] === 'localhost'
                               ? 'MAIL_ID'
-                              : getenv('MAIL_ID'); //SMTP username
+                              : getenv('MAIL_USER'); //SMTP username
         $mail->Password   = $_SERVER['SERVER_NAME'] === 'localhost'
                               ? 'MAIL_APP_PASSWORD'
                               : getenv('MAIL_PASSWORD'); //SMTP password
