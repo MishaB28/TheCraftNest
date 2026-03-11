@@ -12,9 +12,9 @@ if (isset($_POST['updatepassword'])) {
         $check = "SELECT * FROM `admin_users` WHERE `email`='$email' AND `resettoken`='$token'";
         $res = mysqli_query($conn, $check);
         if ($res && mysqli_num_rows($res) == 1) {
-            $update = "UPDATE `admin_users`
-                       SET `password`='$pass', `resettoken`=NULL, `resettokenexpire`=NULL
-                       WHERE `email`='$email' AND `resettoken`='$token'";
+          $update = "UPDATE `admin_users`
+                     SET `password`='$pass', `resettoken`='', `resettokenexpire`=''
+                     WHERE `email`='$email' AND `resettoken`='$token'";
             if (mysqli_query($conn, $update)) {
                 echo '<script> alert("Your password has been changed! Thank you :)");
                      window.location.href = "' . BASE_URL . 'admin/login.php";
