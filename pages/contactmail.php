@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
+    $mail->Timeout    = 10;
     // Gmail address which you want to use as SMTP server
     $mail->Username = $_SERVER['SERVER_NAME'] === 'localhost'
       ? 'MAIL_ID'
@@ -45,15 +46,16 @@ if (isset($_POST['submit'])) {
                  <span>Your Message has been sent! Thank you for contacting us. We will get back to you as soon as we can! :)</span>
                 </div>';
   } catch (Exception $e) {
-    $alert = '<div class="alert alerterror">
-                <span>We are so sorry :(  There was a problem. Please try again later!' . $e->getMessage() . '</span>
-              </div>';
+        error_log("Mailer Error: " . $mail->ErrorInfo);
+        $alert = '<div class="alert alerterror">
+                    <span>We are so sorry :(  There was a problem. Please try again later!</span>
+                  </div>';
   }
 }
 ?>
 <script>
-  setTimeout(function() {
-    let alert = document.querySelector(".alert");
-    alert.remove();
-  }, 8000);
+   setTimeout(function() {
+      let alert = document.querySelector(".alert");
+      if (alert) alert.remove();                              // ADDED null check
+   }, 8000);
 </script>
