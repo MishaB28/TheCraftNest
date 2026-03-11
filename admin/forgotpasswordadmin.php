@@ -9,9 +9,9 @@ require_once __DIR__ . '/phpmailer/Exception.php';
 $alert = '';
 function sendMail($emailid, $reset_token)
 {
-    require_once('PHPMailer/PHPMailer.php');
-    require_once('PHPMailer/SMTP.php');
-    require_once('PHPMailer/Exception.php');
+   require_once __DIR__ . '/../phpmailer/PHPMailer.php';
+   require_once __DIR__ . '/../phpmailer/SMTP.php';
+   require_once __DIR__ . '/../phpmailer/Exception.php';
 
     $mail = new PHPMailer(true);
 
