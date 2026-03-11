@@ -2,9 +2,9 @@
 require('../configs/constants.php');
 require_once __DIR__ . '/../connection.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+require_once __DIR__ . '/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/SMTP.php';
+require_once __DIR__ . '/phpmailer/Exception.php';
 
 $alert = '';
 function sendMail($emailid, $reset_token)
