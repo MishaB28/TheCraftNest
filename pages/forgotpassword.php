@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../connection.php';
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -18,7 +17,7 @@ function sendMail($emailid, $reset_token)
         //Server settings
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
         $mail->Timeout    = 10;
         $mail->Username   = $_SERVER['SERVER_NAME'] === 'localhost'
                               ? 'MAIL_ID'
@@ -29,7 +28,7 @@ function sendMail($emailid, $reset_token)
         $fromEmail = $_SERVER['SERVER_NAME'] === 'localhost'
                                  ? 'MAIL_ID'
                                  : getenv('MAIL_ID');
-        $mail->SMTPSecure = HPMailer::ENCRYPTION_STARTTLS;           //Enable implicit TLS encryption
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;           //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
