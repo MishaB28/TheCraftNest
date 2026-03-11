@@ -50,7 +50,7 @@ function sendMail($emailid, $reset_token)
 
         $mail->send();
         return true;
-    } } catch (Exception $e) {
+    } catch (Exception $e) {
           error_log("Mailer Error: " . $mail->ErrorInfo);
           return false;
       }
