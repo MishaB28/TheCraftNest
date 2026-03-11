@@ -1,14 +1,10 @@
-<?php
-include('../configs/constants.php');
-session_start();
-
-if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
-    echo '<script>
-            alert("Not logged in!");
-            window.location.replace("' . BASE_URL . 'admin/login.php");
-          </script>';
-    exit;
-}
+<?php include('../configs/constants.php');
+if (empty($_SESSION['login'])){
+      echo '<script> alert("Not logged in!");
+          window.location.replace("' . BASE_URL . 'admin/login.php");
+  </script>';
+  die();
+  }
 ?>
 <html>
    <head>
