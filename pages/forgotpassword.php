@@ -16,7 +16,7 @@ function sendMail($emailid, $reset_token)
     try {
         //Server settings
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->Host       = 'smtp-relay.brevo.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
         $mail->Timeout    = 10;
         $mail->Username   = $_SERVER['SERVER_NAME'] === 'localhost'

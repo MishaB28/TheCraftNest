@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
   $message = $_POST['message'];
   try {
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = 'smtp-relay.brevo.com';
     $mail->SMTPAuth = true;
     $mail->Timeout    = 10;
     // Gmail address which you want to use as SMTP server
